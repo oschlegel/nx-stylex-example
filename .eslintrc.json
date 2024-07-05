@@ -1,7 +1,7 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nx"],
+  "plugins": ["@nx", "@stylexjs"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
@@ -38,5 +38,8 @@
       },
       "rules": {}
     }
-  ]
+  ],
+  "rules": {
+    "@stylexjs/valid-styles": "error"
+  }
 }

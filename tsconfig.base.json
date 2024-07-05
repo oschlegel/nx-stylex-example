@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@nx-stylex-example/ui": ["libs/ui/src/index.ts"],
+      "@nx-stylex-example/ui/*": ["libs/ui/src/lib/*"],
       "@nx-stylex-example/ui/server": ["libs/ui/src/server.ts"]
     }
   },
