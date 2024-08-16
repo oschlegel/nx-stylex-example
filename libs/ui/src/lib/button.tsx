@@ -1,21 +1,6 @@
 import * as stylex from '@stylexjs/stylex';
-import { StyleXStyles } from '@stylexjs/stylex';
 import { ButtonHTMLAttributes, FC, PropsWithChildren } from 'react';
 import { colors } from './colors.stylex';
-
-type ButtonProps = PropsWithChildren<
-  {
-    sx?: StyleXStyles;
-  } & ButtonHTMLAttributes<HTMLButtonElement>
->;
-
-export const Button: FC<ButtonProps> = ({ children, sx, ...props }) => {
-  return (
-    <button {...stylex.props(styles.base, sx)} {...props}>
-      {children}
-    </button>
-  );
-};
 
 const styles = stylex.create({
   base: {
@@ -30,3 +15,17 @@ const styles = stylex.create({
     cursor: 'pointer',
   },
 });
+
+type ButtonProps = PropsWithChildren<
+  {
+    sx?: stylex.StyleXStylesWithout<typeof styles.base>;
+  } & ButtonHTMLAttributes<HTMLButtonElement>
+>;
+
+export const Button: FC<ButtonProps> = ({ children, sx, ...props }) => {
+  return (
+    <button {...stylex.props(styles.base, sx)} {...props}>
+      {children}
+    </button>
+  );
+};
